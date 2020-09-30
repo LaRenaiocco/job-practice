@@ -1,3 +1,29 @@
+# Given a non-negative integer num, return the number of steps to reduce it to zero. If the current number is even, you have to divide it by 2, otherwise, you have to subtract 1 from it.
+
+def numberOfSteps (self, num):
+    """
+    :type num: int
+    :rtype: int
+    """
+    # define a variable for result count
+    result = 0
+    # while num is not zero
+    while num != 0:
+        # if number is even
+        if num % 2 == 0:
+            # divide by 2
+            num = num / 2
+            # increase count by 1
+            result += 1
+        # if number is odd
+        else:
+            # subtract 1
+            num -= 1
+            # increase count by 1
+            result += 1
+    # return result count
+    return result
+
 # Given an array nums, write a function to move all 0's to the end of it while maintaining the relative order of the non-zero elements.
 
 def moveZeroes(self, nums):
