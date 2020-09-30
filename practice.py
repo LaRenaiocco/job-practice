@@ -1,3 +1,23 @@
+# Given an array nums, write a function to move all 0's to the end of it while maintaining the relative order of the non-zero elements.
+
+def moveZeroes(self, nums):
+    """Moves all zeros in a list to end of list.  Alters in place."""
+    # iterate through list and note index points of zeros in a new list
+    index_of_zeros = []
+    for index, num in enumerate(nums):
+        if num == 0:
+            index_of_zeros.append(index)
+    # reverse new list.
+    index_of_zeros = sorted(index_of_zeros, reverse=True)
+    # note length of new list
+    num_of_zeros = len(index_of_zeros)
+    # pop out elements in list based on nums of new list
+    for num in index_of_zeros:
+        nums.pop(num)
+    # append num of zeros to end of list that correspond to len of new list
+    for num in range(num_of_zeros):
+        nums.append(0)
+
 # Given an integer number n, return the difference between the product of its digits and the sum of its digits.
 
 def subtractProductAndSum(self, n):
@@ -20,9 +40,9 @@ def subtractProductAndSum(self, n):
 
 # Given an integer n, return a list containing n unique random numbers between 1-10, inclusive.
 
-# def lucky_numbers(n):
-#     """Return n unique random numbers from 1-10 (inclusive)."""
-
+def lucky_numbers(n):
+    """Return n unique random numbers from 1-10 (inclusive)."""
+    pass
 #     from random import randint
 
 #     lucky_nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
