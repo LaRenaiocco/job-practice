@@ -1,3 +1,23 @@
+# Balanced strings are those who have equal quantity of 'L' and 'R' characters.
+# Given a balanced string s split it in the maximum amount of balanced strings.
+# Return the maximum amount of splitted balanced strings.
+
+def balancedStringSplit(self, s):
+    """
+    :type s: str
+    :rtype: int
+    """
+    balanced = 0
+    count = 0
+    for char in s:
+        if char == "R":
+            balanced += 1
+        else:
+            balanced -= 1
+        if balanced == 0:
+            count += 1
+    return count
+
 # Given a non-negative integer num, return the number of steps to reduce it to zero. If the current number is even, you have to divide it by 2, otherwise, you have to subtract 1 from it.
 
 def numberOfSteps (self, num):
@@ -97,7 +117,6 @@ def concat_lists(list1, list2):
     for item in list2:
         result.append(item)
     return result
-
 
 # Given list of ints, return True if any two nums in list sum to 0.
 
