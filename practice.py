@@ -1,3 +1,19 @@
+# Given an array of integers, find if the array contains any duplicates.
+# Your function should return true if any value appears at least twice in the array, and it should return false if every element is distinct.
+
+def containsDuplicate(self, nums):
+    """
+    :type nums: List[int]
+    :rtype: bool
+    """
+    nums_dict = {}
+    for num in nums:
+        nums_dict[num] = nums_dict.get(num, 0) + 1
+    for key in nums_dict:
+        if nums_dict[key] > 1:
+            return True
+    return False
+
 # Given a non-empty array of integers, every element appears twice except for one. Find that single one.
 
 def singleNumber(self, nums):
