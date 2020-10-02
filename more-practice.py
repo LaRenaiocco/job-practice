@@ -1,3 +1,18 @@
+def lucky_numbers(n):
+    """Return n unique random numbers from 1-10 (inclusive).
+    >>> lucky_numbers(0)
+    []
+    >>> sorted(lucky_numbers(10))
+    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    """
+    from random import randint
+    result = []
+    while len(result) < n:
+        random_num = randint(1, 10)
+        if random_num not in result:
+            result.append(random_num)
+    return result
+
 """Write a function that compresses a string.
 
 Repeated characters should be compressed to one character and the number of
