@@ -1,3 +1,31 @@
+def has_balanced_parens(phrase):
+    """Does a string have balanced parentheses?
+    >>> has_balanced_parens("()")
+    True
+    >>> has_balanced_parens("(Oh Noes!)(")
+    False
+    >>> has_balanced_parens("((There's a bonus open paren here.)")
+    False
+    >>> has_balanced_parens(")")
+    False
+    >>> has_balanced_parens("(")
+    False
+    >>> has_balanced_parens("(This has (too many closes.) ) )")
+    False
+    >>> has_balanced_parens("Hey...there are no parens here!")
+    True
+    """
+    paren_count = 0
+    for char in phrase:
+        if char == "(":
+            paren_count += 1
+        if char == ")":
+            paren_count -= 1
+    if paren_count == 0:
+        return True
+    else:
+        return False
+
 # Given an array of integers, find if the array contains any duplicates.
 # Your function should return true if any value appears at least twice in the array, and it should return false if every element is distinct.
 
