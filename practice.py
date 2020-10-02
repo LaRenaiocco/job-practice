@@ -1,44 +1,54 @@
-"""Write a function that compresses a string.
-
-Repeated characters should be compressed to one character and the number of
-times it repeats:
-
->>> compress('aabbaabb')
-'a2b2a2b2'
-
-If a character appears once, it should not be followed by a number:
-
->>> compress('abc')
-'abc'
-
-The function should handle letters, whitespace, and punctuation:
-
->>> compress('Hello, world! Cows go moooo...')
-'Hel2o, world! Cows go mo4.3'
-"""
+def decode(s):
+    """Decode a string.
+    >>> decode("0h")
+    'h'
+    >>> decode("2abh")
+    'h'
+    >>> decode("0h1ae2bcy")
+    'hey'
+    """
+    nums_set = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'}
+    result = ""
+    for index, char in enumerate(s):
+        if char in nums_set:
+            skip = index + int(char) + 1
+            result += s[skip]
+    return result
 
 
-def compress(string):
-    """Return a compressed version of the given string."""
-    char_list = []
-    for char in string:
-        char_list.append(char)
-    new_list = [char_list[0]]
-    index = 0
-    count = 1
-    while index < len(char_list)-1:
-        if char_list[index] == char_list[index + 1]:
-            count += 1
-        else:
-            if count != 1:
-                new_list.append(str(count))
-                count = 1
-            new_list.append(char_list[index + 1])
-        index += 1
-    if count != 1:
-        new_list.append(str(count))
-    new_string = "".join(new_list)
-    return new_string
+
+
+# def compress(string):
+#     """Return a compressed version of the given string.
+#     >>> compress('aabbaabb')
+#     'a2b2a2b2'
+#     If a character appears once, it should not be followed by a number:
+#     >>> compress('abc')
+#     'abc'
+#     The function should handle letters, whitespace, and punctuation:
+#     >>> compress('Hello, world! Cows go moooo...')
+#     'Hel2o, world! Cows go mo4.3'
+#     """
+#     char_list = []
+#     for char in string:
+#         char_list.append(char)
+#     new_list = [char_list[0]]
+#     index = 0
+#     count = 1
+#     while index < len(char_list)-1:
+#         if char_list[index] == char_list[index + 1]:
+#             count += 1
+#         else:
+#             if count != 1:
+#                 new_list.append(str(count))
+#                 count = 1
+#             new_list.append(char_list[index + 1])
+#         index += 1
+#     if count != 1:
+#         new_list.append(str(count))
+#     new_string = "".join(new_list)
+#     return new_string
+
 
 ## I don't like this solution!!! Need to attempt again with a stack!
 
@@ -98,7 +108,6 @@ def has_balanced_brackets(phrase):
         return False                
 
 
-
 # Check if a phrase has balanced parentheses
 
 def has_balanced_parens(phrase):
@@ -129,6 +138,7 @@ def has_balanced_parens(phrase):
     else:
         return False
 
+
 # Given an array of integers, find if the array contains any duplicates.
 # Your function should return true if any value appears at least twice in the array, and it should return false if every element is distinct.
 
@@ -145,6 +155,7 @@ def containsDuplicate(self, nums):
             return True
     return False
 
+
 # Given a non-empty array of integers, every element appears twice except for one. Find that single one.
 
 def singleNumber(self, nums):
@@ -158,7 +169,7 @@ def singleNumber(self, nums):
     for num in nums:
         nums_dict[num] = nums_dict.get(num, 0) + 1
     return min(nums_dict, key=nums_dict.get)
-        
+
 
 # Balanced strings are those who have equal quantity of 'L' and 'R' characters.
 # Given a balanced string s split it in the maximum amount of balanced strings.
@@ -179,6 +190,7 @@ def balancedStringSplit(self, s):
         if balanced == 0:
             count += 1
     return count
+
 
 # Given a non-negative integer num, return the number of steps to reduce it to zero. If the current number is even, you have to divide it by 2, otherwise, you have to subtract 1 from it.
 
@@ -206,6 +218,7 @@ def numberOfSteps (self, num):
     # return result count
     return result
 
+
 # Given an array nums, write a function to move all 0's to the end of it while maintaining the relative order of the non-zero elements.
 
 def moveZeroes(self, nums):
@@ -225,6 +238,7 @@ def moveZeroes(self, nums):
     # append num of zeros to end of list that correspond to len of new list
     for num in range(num_of_zeros):
         nums.append(0)
+
 
 # Given an integer number n, return the difference between the product of its digits and the sum of its digits.
 
@@ -246,6 +260,7 @@ def subtractProductAndSum(self, n):
     # return product minus sum
     return product - sumation
 
+
 # Given an integer n, return a list containing n unique random numbers between 1-10, inclusive.
 
 def lucky_numbers(n):
@@ -260,6 +275,7 @@ def lucky_numbers(n):
 #         if lucky not in result:
 #             result.append(lucky)
 #         else
+
 
 # Given two lists. concatenate them (that is, combine them into a single list).
 
@@ -279,6 +295,7 @@ def concat_lists(list1, list2):
     for item in list2:
         result.append(item)
     return result
+
 
 # Given list of ints, return True if any two nums in list sum to 0.
 
