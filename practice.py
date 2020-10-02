@@ -1,3 +1,18 @@
+# Given a non-empty array of integers, every element appears twice except for one. Find that single one.
+
+def singleNumber(self, nums):
+    """
+    :type nums: List[int]
+    :rtype: int
+    """
+    # make a dictionary where num is the key and a count of nums is the value
+    # check dictionary for value that is 1, return key
+    nums_dict = {}
+    for num in nums:
+        nums_dict[num] = nums_dict.get(num, 0) + 1
+    return min(nums_dict, key=nums_dict.get)
+        
+
 # Balanced strings are those who have equal quantity of 'L' and 'R' characters.
 # Given a balanced string s split it in the maximum amount of balanced strings.
 # Return the maximum amount of splitted balanced strings.
