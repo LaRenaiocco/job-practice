@@ -1,3 +1,17 @@
+def word_lengths(sentence):
+    """Given a phrase, return dictionary keyed by word-length, 
+    with the value for each length being the set of words of that length.
+    Get dictionary of word-length: {words}.
+    """
+    word_list = sentence.split()
+    result = {}
+    for word in word_list:
+        length = len(word)
+        result[length] = result.get(length, set())
+        result[length].add(word)
+    return result
+
+
 def lucky_numbers(n):
     """Return n unique random numbers from 1-10 (inclusive).
     >>> lucky_numbers(0)
