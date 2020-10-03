@@ -1,3 +1,29 @@
+# find the number of pairs of integers in array
+
+def sockMerchant(n, ar):
+    socks = {}
+    pairs = 0
+    for sock in ar:
+        socks[sock] = socks.get(sock, 0) + 1
+    for value in socks.values():
+        pairs +=(value // 2)
+    return pairs
+
+# def truncate(string):
+#     """
+#     >>> truncate('aaaaabbbbbcccaaaa')
+#     'abca'
+
+#     >>> truncate('hi there')
+#     'hi there'
+
+#     >>> truncate('hi   !!! wooow')
+#     'hi ! wow'
+#     """
+#     current = string[0]
+#     result_string = ""
+#     for char in string: 
+
 def decode(s):
     """Decode a string.
     >>> decode("0h")
@@ -14,8 +40,6 @@ def decode(s):
             skip = index + int(char) + 1
             result += s[skip]
     return result
-
-
 
 
 # def compress(string):

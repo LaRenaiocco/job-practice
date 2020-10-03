@@ -1,3 +1,59 @@
+#check how many times the letter a is present n length of string s, repeated infinitely
+
+def repeatedString(s, n):
+    """
+    >>> repeatedString('abc', 10)
+    4
+    """
+    length = len(s)
+    num_a = 0
+    for char in s:
+        if char == "a":
+            num_a += 1
+    complete_strings = n // length
+    result = complete_strings * num_a
+    extra = n % length
+    last_slice = s[:extra]
+    for char in last_slice:
+        if char == "a":
+            result += 1
+    return result
+    #/ check the length of the string 
+    ## check and record what index points are an a 
+    #/ record how many As
+    #/ divide n by length of string to know how many complete strings
+    #/ multipy complete strings by number of As 
+    #/ check how many left over characters with Modulo 
+    # check for a's in the leftover characters.
+    # add to total as 
+    # return total
+
+# def word_count(phrase):
+#     """Count words in a sentence, and print in ascending order.
+
+#     For example:
+#     >>> word_count("berry cherry cherry cherry berry apple")
+#     apple: 1
+#     berry: 2
+#     cherry: 3
+
+#     If there is a tie for a count, make sure the words are printed in ascending order within the tie:
+#     >>> word_count("hey hi hello")
+#     hello: 1
+#     hey: 1
+#     hi: 1
+
+#     Capitalized words are considered distinct:
+#     >>> word_count("hi Hi hi")
+#     Hi: 1
+#     hi: 2
+#     """
+#     word_dict = {}
+#     word_list = phrase.split()
+#     for word in word_list:
+#         word_dict[word] = word_dict.get(word, 0) + 1
+    
+
 def word_lengths(sentence):
     """Given a phrase, return dictionary keyed by word-length, 
     with the value for each length being the set of words of that length.
