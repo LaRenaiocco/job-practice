@@ -1,4 +1,13 @@
-# return characters at specific index points on a grid (codewars)
+#remove vowels from a string
+def disemvowel(string):
+    vowels = "AEIOUaeiou"
+    result = ""
+    for char in string:
+        if char not in vowels:
+            result += char
+    return result
+
+# return characters at specific index points on a grid (codewars
 def grid_index(grid, indexes):
     l = []
     result =""
@@ -8,9 +17,6 @@ def grid_index(grid, indexes):
         result += l[num - 1]
         
     return result
-
-
-
 
 # check how many times the letter a is present n length of string s, repeated infinitely
 def repeatedString(s, n):
