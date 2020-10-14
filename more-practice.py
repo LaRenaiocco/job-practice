@@ -1,3 +1,7 @@
+#is a number divisible by 2 other numbers
+def is_divide_by(number, a, b):
+  return number % a == 0 and number % b == 0
+
 #remove adjacent duplicate characters from a string
 def solution(stones):
     count = 0
