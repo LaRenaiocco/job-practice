@@ -1,3 +1,15 @@
+#remove adjacent duplicate characters from a string
+def solution(stones):
+    count = 0
+    index = 0
+    end = len(stones) - 1
+    while index < end:
+        if stones[index] == stones[index + 1]:
+            count += 1
+        index += 1
+        
+    return count
+
 #remove vowels from a string
 def disemvowel(string):
     vowels = "AEIOUaeiou"
