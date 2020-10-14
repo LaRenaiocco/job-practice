@@ -1,3 +1,11 @@
+# will the number of bullets kill all the dragons if it takes
+# two bullets to kill a dragon
+def hero(bullets, dragons):
+    if bullets / 2 >= dragons:
+        return True
+    else: 
+        return False
+
 #is a number divisible by 2 other numbers
 def is_divide_by(number, a, b):
   return number % a == 0 and number % b == 0
