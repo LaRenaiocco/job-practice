@@ -1,3 +1,9 @@
+def mirror(data: list) -> list:
+    result = sorted(data)
+    reversed = sorted(data, reverse = True)
+    result.extend(reversed[1:])
+    return result
+
 def flip(d, a):
     if d == "R":
         result = sorted(a)
