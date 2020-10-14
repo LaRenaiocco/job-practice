@@ -1,5 +1,5 @@
-# find the number of pairs of integers in array
 
+#  find the number of pairs of integers in array
 def sockMerchant(n, ar):
     socks = {}
     pairs = 0
@@ -9,20 +9,6 @@ def sockMerchant(n, ar):
         pairs +=(value // 2)
     return pairs
 
-# def truncate(string):
-#     """
-#     >>> truncate('aaaaabbbbbcccaaaa')
-#     'abca'
-
-#     >>> truncate('hi there')
-#     'hi there'
-
-#     >>> truncate('hi   !!! wooow')
-#     'hi ! wow'
-#     """
-#     current = string[0]
-#     result_string = ""
-#     for char in string: 
 
 def decode(s):
     """Decode a string.
@@ -42,98 +28,7 @@ def decode(s):
     return result
 
 
-# def compress(string):
-#     """Return a compressed version of the given string.
-#     >>> compress('aabbaabb')
-#     'a2b2a2b2'
-#     If a character appears once, it should not be followed by a number:
-#     >>> compress('abc')
-#     'abc'
-#     The function should handle letters, whitespace, and punctuation:
-#     >>> compress('Hello, world! Cows go moooo...')
-#     'Hel2o, world! Cows go mo4.3'
-#     """
-#     char_list = []
-#     for char in string:
-#         char_list.append(char)
-#     new_list = [char_list[0]]
-#     index = 0
-#     count = 1
-#     while index < len(char_list)-1:
-#         if char_list[index] == char_list[index + 1]:
-#             count += 1
-#         else:
-#             if count != 1:
-#                 new_list.append(str(count))
-#                 count = 1
-#             new_list.append(char_list[index + 1])
-#         index += 1
-#     if count != 1:
-#         new_list.append(str(count))
-#     new_string = "".join(new_list)
-#     return new_string
-
-
-## I don't like this solution!!! Need to attempt again with a stack!
-
-def has_balanced_brackets(phrase):
-    """Does a given string have balanced pairs of brackets?
-
-    Given a string as input, return True or False depending on whether the
-    string contains balanced (), {}, [], and/or <>.
-    >>> has_balanced_brackets("<ok>")
-    True
-    >>> has_balanced_brackets("<[ok]>")
-    True
-    >>> has_balanced_brackets("<[{(yay)}]>")
-    True
-    >>> has_balanced_brackets("(Oops!){")
-    False
-    >>> has_balanced_brackets("{[[This has too many open square brackets.]}")
-    False
-    >>> has_balanced_brackets(">")
-    False
-    >>> has_balanced_brackets("(This has {too many} ) closers. )")
-    False
-    >>> has_balanced_brackets("<{Not Ok>}")
-    False
-    >>> has_balanced_brackets("No brackets here!")
-    True
-    """
-
-    # Keep a count of each type of bracket and keep a list of order
-
-    open_bracket_types = {"(", "{", "[", "<"}
-    close_bracket_types = {")", "}", "]", ">"}
-    bracket_order = []
-    for char in phrase:
-        if char in open_bracket_types:
-            bracket_order.append(char)
-        if char in close_bracket_types:
-            if bracket_order == []:
-                return False
-            else:
-                match = bracket_order.pop()
-            if char == ")":
-                if match != "(":
-                    return False
-            if char == "}":
-                if match != "{":
-                    return False
-            if char == "]":
-                if match != "[":
-                    return False
-            if char == ">":
-                if match != "<":
-                    return False
-    if bracket_order == []:
-        return True
-    else:
-        return False                
-
-
 # Check if a phrase has balanced parentheses
-
 def has_balanced_parens(phrase):
     """Does a string have balanced parentheses?
     >>> has_balanced_parens("()")
@@ -165,7 +60,6 @@ def has_balanced_parens(phrase):
 
 # Given an array of integers, find if the array contains any duplicates.
 # Your function should return true if any value appears at least twice in the array, and it should return false if every element is distinct.
-
 def containsDuplicate(self, nums):
     """
     :type nums: List[int]
@@ -181,7 +75,6 @@ def containsDuplicate(self, nums):
 
 
 # Given a non-empty array of integers, every element appears twice except for one. Find that single one.
-
 def singleNumber(self, nums):
     """
     :type nums: List[int]
@@ -198,7 +91,6 @@ def singleNumber(self, nums):
 # Balanced strings are those who have equal quantity of 'L' and 'R' characters.
 # Given a balanced string s split it in the maximum amount of balanced strings.
 # Return the maximum amount of splitted balanced strings.
-
 def balancedStringSplit(self, s):
     """
     :type s: str
@@ -217,7 +109,6 @@ def balancedStringSplit(self, s):
 
 
 # Given a non-negative integer num, return the number of steps to reduce it to zero. If the current number is even, you have to divide it by 2, otherwise, you have to subtract 1 from it.
-
 def numberOfSteps (self, num):
     """
     :type num: int
@@ -244,7 +135,6 @@ def numberOfSteps (self, num):
 
 
 # Given an array nums, write a function to move all 0's to the end of it while maintaining the relative order of the non-zero elements.
-
 def moveZeroes(self, nums):
     """Moves all zeros in a list to end of list.  Alters in place."""
     # iterate through list and note index points of zeros in a new list
@@ -265,7 +155,6 @@ def moveZeroes(self, nums):
 
 
 # Given an integer number n, return the difference between the product of its digits and the sum of its digits.
-
 def subtractProductAndSum(self, n):
     """ Subtract sum from product of digits on an integer"""
     # convert integer to string and split into a list
@@ -285,24 +174,7 @@ def subtractProductAndSum(self, n):
     return product - sumation
 
 
-# Given an integer n, return a list containing n unique random numbers between 1-10, inclusive.
-
-def lucky_numbers(n):
-    """Return n unique random numbers from 1-10 (inclusive)."""
-    pass
-#     from random import randint
-
-#     lucky_nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-#     result = set([])
-#     for num in range(1, n + 1):
-#         lucky = randint(lucky_nums)
-#         if lucky not in result:
-#             result.append(lucky)
-#         else
-
-
 # Given two lists. concatenate them (that is, combine them into a single list).
-
 def concat_lists(list1, list2):
     """Combine lists.
     >>> concat_lists([1, 2], [3, 4])
@@ -322,7 +194,6 @@ def concat_lists(list1, list2):
 
 
 # Given list of ints, return True if any two nums in list sum to 0.
-
 def add_to_zero(nums):
     """Given list of ints, return True if any two nums sum to 0.
     >>> add_to_zero([])

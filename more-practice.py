@@ -1,5 +1,18 @@
-#check how many times the letter a is present n length of string s, repeated infinitely
+# return characters at specific index points on a grid (codewars)
+def grid_index(grid, indexes):
+    l = []
+    result =""
+    for row in grid:
+        l.extend(row)
+    for num in indexes:
+        result += l[num - 1]
+        
+    return result
 
+
+
+
+# check how many times the letter a is present n length of string s, repeated infinitely
 def repeatedString(s, n):
     """
     >>> repeatedString('abc', 10)
@@ -27,32 +40,6 @@ def repeatedString(s, n):
     # check for a's in the leftover characters.
     # add to total as 
     # return total
-
-# def word_count(phrase):
-#     """Count words in a sentence, and print in ascending order.
-
-#     For example:
-#     >>> word_count("berry cherry cherry cherry berry apple")
-#     apple: 1
-#     berry: 2
-#     cherry: 3
-
-#     If there is a tie for a count, make sure the words are printed in ascending order within the tie:
-#     >>> word_count("hey hi hello")
-#     hello: 1
-#     hey: 1
-#     hi: 1
-
-#     Capitalized words are considered distinct:
-#     >>> word_count("hi Hi hi")
-#     Hi: 1
-#     hi: 2
-#     """
-#     word_dict = {}
-#     word_list = phrase.split()
-#     for word in word_list:
-#         word_dict[word] = word_dict.get(word, 0) + 1
-    
 
 def word_lengths(sentence):
     """Given a phrase, return dictionary keyed by word-length, 
@@ -83,28 +70,27 @@ def lucky_numbers(n):
             result.append(random_num)
     return result
 
-"""Write a function that compresses a string.
-
-Repeated characters should be compressed to one character and the number of
-times it repeats:
-
->>> compress('aabbaabb')
-'a2b2a2b2'
-
-If a character appears once, it should not be followed by a number:
-
->>> compress('abc')
-'abc'
-
-The function should handle letters, whitespace, and punctuation:
-
->>> compress('Hello, world! Cows go moooo...')
-'Hel2o, world! Cows go mo4.3'
-"""
-
 
 def compress(string):
-    """Return a compressed version of the given string."""
+    """Return a compressed version of the given string.
+    Write a function that compresses a string.
+
+    Repeated characters should be compressed to one character and the number of
+    times it repeats:
+
+    >>> compress('aabbaabb')
+    'a2b2a2b2'
+
+    If a character appears once, it should not be followed by a number:
+
+    >>> compress('abc')
+    'abc'
+
+    The function should handle letters, whitespace, and punctuation:
+
+    >>> compress('Hello, world! Cows go moooo...')
+    'Hel2o, world! Cows go mo4.3'
+    """
     char_list = []
     for char in string:
         char_list.append(char)
