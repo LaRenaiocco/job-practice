@@ -1,3 +1,18 @@
+#Counting Valleys HackerRank Interview Prep
+def countingValleys(steps, path):
+
+    path_count = 0
+    result = 0
+    for char in path:
+        if char == "U":
+            path_count += 1
+            if path_count == 0:
+                result += 1
+        if char == "D":
+            path_count -= 1
+    
+    return result
+
 #Repeated String HackerRank interview prep
 def repeatedString(s, n):
     length = len(s)
