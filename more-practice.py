@@ -1,3 +1,17 @@
+def sort_array(source_array):
+    odds = []
+    odds_index = []
+    for i, num in enumerate(source_array):
+        if num % 2 != 0:
+            odds.append(num)
+            odds_index.append(i)
+    odds.sort()
+    while odds != []:
+        i = odds_index.pop(0)
+        num = odds.pop(0)
+        source_array[i] = num
+    return source_array
+
 def rot13(message):
     alpha = {
         "a": "n", "A": "N", "b": "o", "B": "O", "c": "p", "C": "P", 
