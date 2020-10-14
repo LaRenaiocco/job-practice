@@ -1,3 +1,10 @@
+def flip(d, a):
+    if d == "R":
+        result = sorted(a)
+    else:
+        result = sorted(a, reverse = True)
+    return result
+
 # will the number of bullets kill all the dragons if it takes
 # two bullets to kill a dragon
 def hero(bullets, dragons):
