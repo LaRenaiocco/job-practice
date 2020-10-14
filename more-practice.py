@@ -1,3 +1,20 @@
+#Repeated String HackerRank interview prep
+def repeatedString(s, n):
+    length = len(s)
+    num_a = 0
+    for char in s:
+        if char == "a":
+            num_a += 1
+    complete_strings = n // length
+    result = complete_strings * num_a
+    extra = n % length
+    last_slice = s[:extra]
+    for char in last_slice:
+        if char == "a":
+            result += 1
+    return result
+
+#sort odds in numerical order but leave evens where they are in array
 def sort_array(source_array):
     odds = []
     odds_index = []
@@ -12,6 +29,7 @@ def sort_array(source_array):
         source_array[i] = num
     return source_array
 
+#encode a message using rot13 ceaser cipher
 def rot13(message):
     alpha = {
         "a": "n", "A": "N", "b": "o", "B": "O", "c": "p", "C": "P", 
@@ -62,7 +80,7 @@ def hero(bullets, dragons):
 
 #is a number divisible by 2 other numbers
 def is_divide_by(number, a, b):
-  return number % a == 0 and number % b == 0
+    return number % a == 0 and number % b == 0
 
 #remove adjacent duplicate characters from a string
 def solution(stones):
