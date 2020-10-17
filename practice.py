@@ -1,3 +1,24 @@
+#return the index of the number that is the least larger than number at 
+#provided index (codewars)
+def least_larger(a, i): 
+#     set variable for number at index
+    num_to_compare = a[i]
+#     set variable for least larger list
+    larger_nums = []
+#     iterate through list checking if num is larger
+    for num in a:
+        if num > num_to_compare:
+#     if it is add to list.
+            larger_nums.append(num)
+    if larger_nums == []:
+        return -1
+    else:
+        least_larger = min(larger_nums)
+#     return min of list
+    for index, num in enumerate(a):
+        if num == least_larger:
+            return index
+
 
 #  find the number of pairs of integers in array
 def sockMerchant(n, ar):
