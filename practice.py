@@ -1,3 +1,13 @@
+# return sum of only nums in array that appear once (codewars)
+def repeats(arr):
+    single_nums = set([])
+    for num in arr:
+        if num not in single_nums:
+            single_nums.add(num)
+        else:
+            single_nums.remove(num)
+    return sum(single_nums)
+
 #return the index of the number that is the least larger than number at 
 #provided index (codewars)
 def least_larger(a, i): 
