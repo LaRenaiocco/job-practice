@@ -1,3 +1,12 @@
+#given an array and a number, find index at num and return num in array 
+#to power of num.  If index doesn't exist, return -1
+
+def index(array, n):
+    try:
+        return array[n] ** n
+    except:
+        return -1
+
 # return sum of only nums in array that appear once (codewars)
 def repeats(arr):
     single_nums = set([])
