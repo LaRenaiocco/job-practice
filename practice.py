@@ -1,3 +1,22 @@
+#return a list of just the items between the duplicate items in list (codewars)
+#Not at all pretty, but it works.
+def duplicate_sandwich(arr):
+    count_dict = {}
+    for item in arr:
+        count_dict[item] = count_dict.get(item, 0) + 1
+    for key, value in count_dict.items():
+        if value == 2:
+            dup = key
+    dup_index = []
+    for index, item in enumerate(arr):
+        if item == dup:
+            dup_index.append(index)
+    result = []
+    for index, item in enumerate(arr):
+        if index in range(dup_index[0] + 1, dup_index[1]):
+            result.append(item)
+    return result
+
 #given an array and a number, find index at num and return num in array 
 #to power of num.  If index doesn't exist, return -1
 
