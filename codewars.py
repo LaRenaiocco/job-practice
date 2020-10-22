@@ -1,3 +1,16 @@
+#Remove B M W (7kyu)
+def remove_bmw(string):
+    try:
+        bmw = {"b", "m", "w"}
+        result = ""
+        for char in string:
+            if char.lower() not in bmw:
+                result += char
+        return result
+    except:
+        if type(string) != str:
+            return "This program only works for text."
+
 #Shortest Word (7kyu)
 def find_short(s):
     words = s.split()
