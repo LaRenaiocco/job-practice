@@ -1,3 +1,10 @@
+#Find Screen Size (7kyu)
+def find_screen_height(width, ratio): 
+    ratio = ratio.split(":")
+    w, h = ratio
+    height = int((width / int(w)) * int(h))
+    return f"{width}x{height}"
+
 #Multiplication table for number (8kyu)
 def multi_table(number):
     string = ''
