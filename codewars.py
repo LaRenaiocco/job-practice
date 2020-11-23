@@ -1,3 +1,15 @@
+#Multiplication table for number (8kyu)
+def multi_table(number):
+    string = ''
+    for num in range(1,11):
+        total = num * number
+        summation = f'{num} * {number} = {total}'
+        string += summation
+        if num != 10:
+            string += '\n'
+    return string
+
+
 #Remove B M W (7kyu)
 def remove_bmw(string):
     try:
