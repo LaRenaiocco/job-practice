@@ -1,3 +1,14 @@
+#Minimize sum or array (7kyu)
+def min_sum(arr):
+    sorted_list = sorted(arr)
+    print(sorted_list)
+    sums_list = []
+    while len(sorted_list) > 0:
+        sums_list.append(sorted_list[0] * sorted_list[-1])
+        sorted_list.pop(0)
+        sorted_list.pop(-1)
+    return sum(sums_list)
+
 #Find Screen Size (7kyu)
 def find_screen_height(width, ratio): 
     ratio = ratio.split(":")
