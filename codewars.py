@@ -1,3 +1,8 @@
+#Form the Largest (7kyu)
+def max_number(n):
+    nums_list = sorted([num for num in str(n)], reverse = True)
+    return int("".join(nums_list))
+
 #Minimize sum or array (7kyu)
 def min_sum(arr):
     sorted_list = sorted(arr)
