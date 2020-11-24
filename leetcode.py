@@ -1,3 +1,17 @@
+#third maximum number #414
+def thirdMax(self, nums):
+    """
+    :type nums: List[int]
+    :rtype: int
+    """
+    nums = set(nums)
+    nums = sorted(list(nums))
+    try:
+        return nums[-3]
+    except:
+        return nums[-1]
+    
+
 #arranging coins #441
 def arrangeCoins(self, n):
     """
