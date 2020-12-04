@@ -1,3 +1,11 @@
+#return array of nums from n to 1
+def reverse_seq(n):
+    result = []
+    while n > 0:
+        result.append(n)
+        n -= 1
+    return result
+
 #Form the Largest (7kyu)
 def max_number(n):
     nums_list = sorted([num for num in str(n)], reverse = True)
