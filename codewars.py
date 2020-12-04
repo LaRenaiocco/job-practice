@@ -1,3 +1,9 @@
+#Maximum multiple (7 kyu) - return largest number evenly divided by divisor but less than bound
+def max_multiple(divisor, bound):
+    divided = bound // divisor
+    return divided * divisor
+
+
 #chack for balanced parens (5kyu)
 def valid_parentheses(string):
     open_count = 0
