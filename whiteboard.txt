@@ -1,0 +1,74 @@
+Reverse a list in-place. Remember, for this to be “in-place” it can only use a small, constant amount of extra storage space, so no duplicating the list!
+
+For example:
+
+>>> lst = [1, 2, 3]
+>>> rev_list_in_place(lst)
+>>> lst
+[3, 2, 1]
+**     You cannot do this with reversed(), .reverse(), or list slice
+
+concept:
+Reverse the list IN place
+no duplicating the list
+
+pseudocode:
+call list.sort with reverse=true
+
+def rev_list_in_place(lst):
+    lst.sort(reverse=True)
+-----------------------------------
+Write a function, find_longest_word, that takes a list of words and returns the length of the longest one.
+
+>>> find_longest_word(["hi", "hello"])
+5
+
+>>> find_longest_word(["Balloonicorn", "Hackbright"])
+12
+
+concept:
+Taking in a list of words
+Returning an integer
+return the length of the longest word in the list
+
+pseudocode:
+create a variable to store the length of longest word
+iterate through the list
+check the length of each word
+if the length is longer than current varaible value, update variable
+return longest word variable
+
+def find_longest_word(list_of_words):
+    longest = 0
+    for word in list_of_words:
+        if len(word) > longest:
+            longest = len(word)
+    return longest
+
+--------------------------------------
+Compute the sum of a list of numbers.
+
+For example:
+
+>>> sum_list([5, 3, 6, 2, 1])
+17
+
+pseudo code:
+can use sum function within python 
+or without using helper functions:
+create counter variable
+iterate through list
+for each item in the list
+    add the item to the counter
+return the counter
+
+def sum_list(num_list):
+    return sum(num_list)
+
+or:
+
+def sum_list(num_list):
+    result = 0
+    for num in num_list:
+        result += num
+    return result
