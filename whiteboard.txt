@@ -1,3 +1,44 @@
+Given a word in English, return True if that word contains more vowels than non-vowels; otherwise, return False. The word will always be a single word, without any punctuation or spaces. It will contain only uppercase and lowercase letters.
+
+If the phrase is over half vowels, it should return True:
+
+>>> has_more_vowels("moose")
+True
+If it’s half vowels (or less), it’s false:
+
+>>> has_more_vowels("mice")
+False
+
+>>> has_more_vowels("graph")
+False
+
+concept: 
+check if a word has more than 1/2 vowels
+y is not a vowel
+word will have letters only (no punctuation)
+word can have upper and lower case
+
+pseudocode:
+create set of vowels
+set variable to length of word
+count variable set to zero
+iterate through characters of word
+if character (lower case) is in vowel set then
+add 1 to the count
+check if count is greater than length divided by 2
+if yes, return True, else return False
+
+def over_half_vowels(word):
+    vowels = {'a', 'e', 'i', 'o', 'u'}
+    vowel_count = 0
+    for char in word:
+        if char.lower() in vowels:
+            vowel_count += 1
+    if vowel_count > len(word) / 2:
+        return True
+    else: 
+        return False
+----------------------
 Reverse a list in-place. Remember, for this to be “in-place” it can only use a small, constant amount of extra storage space, so no duplicating the list!
 
 For example:
