@@ -1,3 +1,36 @@
+Given list of ints, return True if any two nums in list sum to 0.
+
+>>> add_to_zero([])
+False
+
+>>> add_to_zero([1])
+False
+
+>>> add_to_zero([1, 2, 3])
+False
+
+>>> add_to_zero([1, 2, 3, -2])
+True
+
+concept:
+return true if 2 nums in an array add to zero
+otherwise return false
+
+pseudocode:
+nums will add to zero if there is a negative and a positive of any number in the array
+make set of array
+loop through set
+for each number in set
+    if opposite of number in set
+        return true
+
+def add_to_zero(num_list):
+    num_set = set(num_list)
+    for num in num_set:
+        if (num * - 1) in num_set:
+            return True
+    return False
+--------------------
 Given a word in English, return True if that word contains more vowels than non-vowels; otherwise, return False. The word will always be a single word, without any punctuation or spaces. It will contain only uppercase and lowercase letters.
 
 If the phrase is over half vowels, it should return True:
