@@ -20,3 +20,9 @@ function whichIsLarger(f, g) {
 		return 'neither'
 	}
 }
+
+//  mimic the left shift operator in JS without using left shift
+function shiftToLeft(x, y) {
+	const leftShift = 2 ** y
+	return x * leftShift
+}
