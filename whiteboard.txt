@@ -1,3 +1,74 @@
+_________________________
+DAYS IN MONTH - Hackbright
+Given a string with a month and a year (separated by a space), return the number of days in that month.
+
+Leap years are a bit tricky. A year is a leap year if and only if:
+
+it is evenly divisible by 4
+
+except if it is divisible by 100, in which case it isn’t
+
+except if it is divisible by 400, in which case it is
+
+So, for example, 1904 was a leap year. 1900 is divisible by 100, so it wasn’t. 2000 is divisible by 400, so it was.
+
+concept:
+given a month and year as a string.  determine how many days in that month
+
+pseuodocode:
+first step: convert the string to 2 integers, month and year
+split stringto a list on the space
+now index 0 is month and index 1 is year
+second step: write function to handle leap year
+if number is divisble by 400 then
+    return leap is True
+else if number is divisible by 100 then
+    return leap is false
+else if number is divisible by 4 then
+    return leap is true
+else
+    return leap is false
+this function can be plugged into days_in_month function
+days_in_month
+make dictionary for months and days excluding february
+if month equals 2 then
+    leap variable equals run of leap year function
+    if return equals true
+        return 29
+    if return equals false
+        return 28
+if month doesnt equal 2 then
+    check dictionary for month key
+        return value
+
+def is_leap_year(year):
+    if year % 400 == 0:
+        return True
+    elif year % 100 == 0:
+        return False
+    elif year % 4 == 0:
+        return True
+    else:
+        return False
+
+
+def days_in_month(date):
+    """How many days are there in a month?"""
+    months_not_feb = {1: 31, 3: 31, 4: 30, 5: 31, 6: 30, 7: 31,
+                8: 31, 9: 30, 10: 31, 11:30, 12: 31}
+    month_year = date.split()
+    month = int(month_year[0])
+    year = int(month_year[1])
+    if month == 2:
+        leap = is_leap_year(year)
+        if leap == True:
+            return 29
+        else:
+            return 28
+    else:
+        return months_not_feb[month]
+------------------------
+ADD TO ZERO - Hackbright
 Given list of ints, return True if any two nums in list sum to 0.
 
 >>> add_to_zero([])
