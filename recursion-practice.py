@@ -38,4 +38,4 @@ def build_bst(my_list):
     tree_node = {"data": middle_value}
     tree_node["left_child"] = build_bst(my_list[:middle_idx])
     tree_node["right_child"] = build_bst(my_list[middle_idx + 1:])
-        return tree_node
+    return tree_node
