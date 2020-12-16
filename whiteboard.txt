@@ -1,3 +1,43 @@
+HAS UNIQUE CHARACTERS - Hackbright
+
+Given a word, return True if that word contains only unique characters. Return False otherwise.
+
+>>> has_unique_chars("Monday")
+True
+
+>>> has_unique_chars("Moonday")
+False
+
+>>> has_unique_chars("")
+True
+Uppercase and lowercase letters should be considered separately:
+
+>>> has_unique_chars("Bob")
+
+concept:
+return boolean if a word has all unique characters.  
+Upper and lower count as different characters
+
+pseudocode: 
+create empty set for characters
+loop over characters in word
+    if character is not in set
+        add to set and continue
+    if character is in set
+        return False
+return True at the end if loop has not been broken
+
+code:
+
+def has_unique_chars(word):
+    char_set = set([])
+    for char in word:
+        if char not in char_set:
+            char_set.add(char)
+        else:
+            return False
+    return True
+    
 _________________________
 DAYS IN MONTH - Hackbright
 Given a string with a month and a year (separated by a space), return the number of days in that month.
