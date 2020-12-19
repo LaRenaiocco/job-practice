@@ -1,4 +1,102 @@
-HAS UNIQUE CHARACTERS - Hackbright
+PRIME NUMBER
+Write a function the returns True or False, depending on whether the integer passed into it is a prime number.
+
+Only numbers >1 can be prime numbers:
+
+>>> is_prime(0)
+False
+
+>>> is_prime(1)
+False
+Any number >1 that has no divisors other than 1 and itself is a prime number:
+
+>>> is_prime(2)
+True
+
+>>> is_prime(3)
+True
+
+>>> is_prime(4)
+False
+
+>>> is_prime(11)
+True
+
+>>> is_prime(999)
+False
+
+pseudocode:
+loop through numbers in range of 1 to num
+if num modulo any num in loop == 0, return true
+else return false
+
+def is_prime_number(num):
+    for n in range(2, (num // 2)):
+        if num % n == 0:
+            return False
+    return True
+-------------------
+IS PALINDROME
+Return True/False if this word is a palindrome. A palindrome is a word that is spelled the same backwards and forwards.
+
+>>> is_palindrome("a")
+True
+
+>>> is_palindrome("noon")
+True
+
+>>> is_palindrome("racecar")
+True
+
+>>> is_palindrome("porcupine")
+False
+Treat spaces and uppercase letters normally—so “Racecar” wouldn’t be a palindrome since “R” and “r” aren’t the same letter:
+
+>>> is_palindrome("Racecar")
+False
+
+concept:
+return True if word is the same forwards and backwards
+spaces and Uppercase behave normally
+
+pseudocode:
+need to find middle.
+if odd number, note middle as will not repeat
+if even, can divide exactly in half
+will compare first half and second half of word
+build letters of first 1/2 into a stack, for second half of word
+pop off and compare.
+
+def is_palindrome(word):
+    length = len(word)
+    stack = []
+    if length % 2 != 0:
+       middle = length // 2 + 1
+
+    for index, char in enumerate(word):
+        if length % 2 != 0:
+            if index < middle:
+                stack.append(char)
+            else:
+                if char == stack[-1]:
+                    stack.pop()
+                else:
+                    return False
+        else:
+            if index <= length // 2:
+                stack.append(char)
+            else: 
+                if char == stack[-1]:
+                    stack.pop()
+                else:
+                    return False
+    return True
+    
+
+
+
+--------------------------------
+AS UNIQUE CHARACTERS - Hackbright
 
 Given a word, return True if that word contains only unique characters. Return False otherwise.
 
@@ -37,7 +135,7 @@ def has_unique_chars(word):
         else:
             return False
     return True
-    
+
 _________________________
 DAYS IN MONTH - Hackbright
 Given a string with a month and a year (separated by a space), return the number of days in that month.
