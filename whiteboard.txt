@@ -1,4 +1,27 @@
+MAX NUMBER
+Find the largest integer in a list of integers.
 
+For example:
+
+>>> max_num([5, 3, 6, 2, 1])
+6
+
+concept: return the largest integer from the list without max_num
+pseudocode:
+create a max num variable and set to first number in the list
+loop through list
+if current number is greater than the max variable
+update variable
+return max num
+
+def max_num(nums_list):
+    max_num = nums_list[0]
+    for num in nums_list:
+        if num > max_num:
+            max_num = num
+    return max_num
+
+----------------------
 LARGEST SMALLER THAN
 
 Given an ordered list of numbers and a number, return the index of the largest number in the list that is smaller than that number.
