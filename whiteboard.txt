@@ -1,3 +1,43 @@
+LEET SPEAK
+in which standard letters are often replaced by numerals or special characters.
+
+Letter Becomes
+
+a       @
+o       0
+e       3
+l       1
+s       5
+t       7
+
+In this exercise, you’ll make a function that translate a word to leet-speak:
+
+>>> translate_leet("Hi Balloonicorn")
+'Hi B@1100nic0rn'
+
+>>> translate_leet("Hackbright is the Shizzle")
+'H@ckbrigh7 i5 7h3 5hizz13'
+concept:  take in a string and return a string with certain characters replaced
+pseudocode:
+first create a dictionary with the adjustments
+original letter as key, new character as value
+create an empty return string
+loop through the input string
+for each character check if in dictionary.
+if yes, check value and concat value to result string
+if no, concat original character to result string
+
+def translate_leet(phrase):
+    leet_dict = {'a': '@', 'o': '0', 'e': '3', 
+                'l': '1', 's': '5', 't': '7'}
+    result = ''
+    for char in phrase:
+        if char in leet_dict:
+            result += leet_dict[char]
+        else:
+            result += char
+    return result
+----------------------
 MAX NUMBER
 Find the largest integer in a list of integers.
 
