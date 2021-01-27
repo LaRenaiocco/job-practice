@@ -34,7 +34,7 @@ def scramble(s1, s2):
 
 #Attempt 2
 #also fails runtime
-def scramble(s1, s2):
+def scramble2(s1, s2):
     dict1 = {}
     dict2 = {}
     for char in s1:
