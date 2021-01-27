@@ -9,6 +9,7 @@
 # No punctuation or digits will be included.
 # Performance needs to be considered
 
+# Attempt 1
 # This version finds the correct answers but fails runtime!
 def scramble(s1, s2):
     dict1 = {}
@@ -21,7 +22,7 @@ def scramble(s1, s2):
         else:
             dict1[char] = value - 1
     return True
-    
+
 #pseudocode
 #     create dictionary of string 1 letters with count as value
 #     loop through string 2
@@ -30,3 +31,23 @@ def scramble(s1, s2):
 #     if letter not in dict 1 or value is 0
 #     return false
 #     else, return true
+
+#Attempt 2
+#also fails runtime
+def scramble(s1, s2):
+    dict1 = {}
+    dict2 = {}
+    for char in s1:
+        dict1[char] = dict1.get(char, 0) + 1
+    for char in s2:
+        dict2[char] = dict2.get(char, 0) + 1
+    for key in dict2:
+        value = dict2[key]
+        compared_val = dict1.get(key)
+        if compared_val == None or value > compared_val:
+            return False
+    return True
+
+# pseudocode  
+# create dictionaries of both strings
+# check dictionary values in dict2 are less or equal to values in 1
