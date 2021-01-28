@@ -32,6 +32,21 @@ def scramble(s1, s2):
 #     return false
 #     else, return true
 
+#Attempt 3 - yaaaaay - this one passes the runtime!
+def scramble(s1, s2):
+    dict2 = {}
+    for char in s2:
+        dict2[char] = dict2.get(char, 0) + 1
+    for char in s1:
+        value = dict2.get(char)
+        if value != None and value > 0:
+            dict2[char] = value -1
+    values = dict2.values()
+    for item in values:
+        if item != 0:
+            return False
+    return True
+
 #Attempt 2
 #also fails runtime
 def scramble2(s1, s2):
