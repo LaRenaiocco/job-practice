@@ -1,76 +1,95 @@
+# codewars
+# the instructions for this one are loooong
+# https://www.codewars.com/kata/55031bba8cba40ada90011c4/train/python
+# basic idea:
+# parse numbers out of a string.  
+# Numbers can be no longer than 3 digits
+# if longer split apart into multiple digits
+# check which digists are hidden cubes
+# (ex 153 - 1**3 + 5**3 + 3**3 = 153)
+# return string with all hidden cubes, plus sum total of cubes and 'Lucky'
+# otherwise return 'Unlucky'
+
 def is_sum_of_cubes(s):
     """
-    >>> is_sum_of_cubes("No numbers!")
-    "Unlucky"
-    >>> is_sum_of_cubes("&z _upon 407298a --- ???ry, ww/100 I thought, 631str*ng and w===y -721&()")
-    "407 407 Lucky"
-    >>> is_sum_of_cubes(s = "aqdf& 0 1 xyz 153 777.777")
-    "0 1 153 154 Lucky"
+    # >>> is_sum_of_cubes("No numbers!")
+    # 'Unlucky'
+    # >>> is_sum_of_cubes("&z _upon 407298a --- ???ry, ww/100 I thought, 631str*ng and w===y -721&()")
+    # '407 407 Lucky'
+    # >>> is_sum_of_cubes(s = "aqdf& 0 1 xyz 153 777.777")
+    # '0 1 153 154 Lucky'
+    >>> is_sum_of_cubes("&z371 upon 407298a --- dreary, ###100.153 I thought, 9926315strong and weary -127&() 1") 
+    '371 407 153 1 932 Lucky'
     """
-    #pseudocode
-    # create empty list for numbers found
+
+    # will hold all 3 digit numbers in str form
     nums_list = []
-    # empty list for cube numbers
-    cube_nums_list = []
-    # result string varaible
-    result = ""
-    # split string into list on space
-    s_items = s.split(" ")
-    print(s_items)
-    # for each item in list:
-    for item in s_items:
-        # create number variable
-        num = ""
-        # for each char in item
-        for char in item:
-            # try to convert to int
-            try:
-                char_num = int(char)
-                num += char
-                # if len(num) == 3:
-                #     print(f'try statement {num}')
-                #     nums_list.append(num)
-                #     num = ""
-                
-    #         if yes, add to number variable (in string form)
-    #     except
-            except:
-                print(f'except statement {char}')
-                if num != "":
-                    print(f'except if statment {num}')
+    # create number variable
+    num = ""
+
+    for char in s:
+        # try to convert to int and add string of int to num variable
+        try:
+            int(char)
+            num += str(char)
+        #  handles non int characters
+        except:
+            # if num varaible already has numbers in it, we need to assess
+            # length and break into 3 digit numbers if too long
+            if num != "":
+                if len(num) > 3:
+                    nums_to_add = split_long_num(num)
+                    nums_list.extend(nums_to_add)
+                    # print(nums_list)
+                else:
                     nums_list.append(num)
-                    num = ""
-    #         pass
-        if len(num) > 0:
+                num = ""
+
+    if num != "":
+        if len(num) < 4:
             nums_list.append(num)
-        # if 0 < len(num) <= 3:
-        #     nums_list.append(num)
-        # while len(num) > 3:
-        #     new_num = num[0:3]
-        #     nums_list.append(new_num)
-        #     num = num[3:]
-        #     print(f'new num: {new_num}, num: {num}')
-        print(nums_list)
-    for index, num in enumerate(nums_list):
-        while len(num) > 3:
-            short_num = num[0:3]
-            print(short_num)
-            nums_list.append(short_num)
-            num = num[3:]
-            print(num)
-    print(nums_list)
+        else:
+            nums_to_add = split_long_num(num)
+            nums_list.extend(nums_to_add)
+
+    # check if each num in nums list is a cube number
+    cube_nums_list = check_hidden_cubes(nums_list)
+    # find and return proper result
+    if len(cube_nums_list) > 0:
+        return prepare_result_string(cube_nums_list)
+    else:
+        return "Unlucky"
+    
 
 
-    #     if string length greater than 3, split string into groups of 3 and
-    #     add string form of number variable to new list
-    # loop through numbers list.
-    #     make result variable
-    #     for each char in string
-    #         convert to int and cube it and add to result
-    #     compare result to int of item in list
-    #     if equal, add to cube numbers list
-        
-    # sum cube numbers list and create result string from numbers in  list and sum
+def split_long_num(num): #num input as string
+    short_nums_list = []
+    while len(num) > 3:
+        short_num = num[0:3]
+        short_nums_list.append(short_num)
+        num = num[3:]
+    short_nums_list.append(num)
+    return short_nums_list
+
+def check_hidden_cubes(nums_list): #nums_list holds nums in str form
+    cube_nums_list = []
+    for num in nums_list:
+        total = 0
+        for char in num:
+            total += (int(char)**3)
+
+        if total == int(num):
+            cube_nums_list.append(total)
+    return cube_nums_list
+
+
+def prepare_result_string(cube_nums_list):
+    result = ""
+    cube_total = sum(cube_nums_list)
+    for num in cube_nums_list:
+        result += str(num) + " "
+    return result + f'{cube_total} Lucky'
+
 
 if __name__ == "__main__":
     import doctest

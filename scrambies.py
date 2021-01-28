@@ -33,7 +33,7 @@ def scramble(s1, s2):
 #     else, return true
 
 #Attempt 3 - yaaaaay - this one passes the runtime!
-def scramble(s1, s2):
+def scramble3(s1, s2):
     dict2 = {}
     for char in s2:
         dict2[char] = dict2.get(char, 0) + 1
