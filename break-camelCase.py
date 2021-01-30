@@ -9,7 +9,15 @@ def solution(s):
     >>> solution('canYouBreakApartThisSentence?')
     'can You Break Apart This Sentence?'
     """
-    pass
+    prev_index = 0
+    result = ""
+    for index, char in enumerate(s):
+        if char.isupper():
+            word = s[prev_index:index]
+            result += word + " "
+            prev_index = index
+    result += s[prev_index:]
+    return result
 
 
 
