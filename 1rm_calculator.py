@@ -6,12 +6,12 @@
 # If reps is 1, return weight
 # if reps is 0, return 0
 
-Epley
-1RM = w(1 + (r/30))
-McGlothin
-1RM = (100*w)/(101.3-(2.67123*r))
-Lombardi
-1RM = (w*r)**0.10
+# Epley
+# 1RM = w(1 + (r/30))
+# McGlothin
+# 1RM = (100*w)/(101.3-(2.67123*r))
+# Lombardi
+# 1RM = (w*r)**0.10
 
 def calculate_1RM(w, r):
     """
@@ -23,10 +23,25 @@ def calculate_1RM(w, r):
     289
     >>> calculate_1RM(360,1)
     360
-    >>>ncalculate_1RM(400,0)
+    >>> calculate_1RM(400,0)
     0
     """
-    pass
+    if r == 0:
+        return 0
+    if r == 1:
+        return w
+    
+    epley = w * (1 + r/30)
+    mcglothin = (100*w)/(101.3-(2.67123*r))
+    lombardi = (w*r)**0.10
+    highest_weight = max([epley, mcglothin, lombardi])
+    weight_floor = int(highest_weight)
+    if (highest_weight - weight_floor) > ((weight_floor + 1) - highest_weight):
+        return weight_floor + 1
+    else: 
+        return weight_floor
+
+    
 
 
 # pseudocode:
