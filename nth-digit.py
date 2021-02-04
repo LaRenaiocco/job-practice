@@ -25,6 +25,14 @@ def findDigit(num,nth):
     >>> findDigit(24, -8)
     -1
     """
+    if nth < 1:
+        return -1
+    num = str(num)
+    if num[0] == "-":
+        num = num[1:]
+    if len(num) < nth:
+        return 0
+    return int(num[nth * -1])
 
 # pseudocode
 # if nth is  ) or a negative num, return -1
