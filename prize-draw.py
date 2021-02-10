@@ -40,8 +40,11 @@
 # If n is greater than the number of participants then return 
 # "Not enough participants".
 
+from collections import OrderedDict
 def rank(st, we, n):
     """
+    >>> rank("COLIN,AMANDBA,AMANDAB,CAROL,PauL,JOSEPH", [1, 4, 4, 5, 2, 1], 4)
+    'PauL'
     >>> rank("Addison,Jayden,Sofia,Michael,Andrew,Lily,Benjamin", [4, 2, 1, 4, 3, 1, 2], 4)
     'Benjamin'
     >>> rank("Lagon,Lily", [1, 5], 2)
@@ -53,7 +56,26 @@ def rank(st, we, n):
     """
     if len(st) == 0:
         return 'No participants'
-    
+
+    names = st.split(',')
+
+    if len(names) < n:
+        return 'Not enough participants'
+
+    letter_values = {'a': 1, 'b': 2, 'c': 3, 'd': 4, 'e': 5, 'f': 6,
+                    'g': 7, 'h': 8, 'i': 9, 'j': 10, 'k': 11, 'l': 12,
+                    'm': 13, 'n': 14, 'o': 15, 'p': 16, 'q': 17, 'r': 18,
+                    's': 19, 't': 20, 'u': 21, 'v': 22, 'w': 23, 'x': 24,
+                    'y': 25, 'z': 26}
+    name_scores = {}
+    for index, name in enumerate(names):
+        name_scores[name] = name_scores.get(name, 0)
+        for char in name:
+            name_scores[name] += letter_values[char.lower()]
+        name_scores[name] *= we[index]
+    sorted_names = sorted(name_scores, key=name_scores.__getitem__, reverse=True)
+    return sorted_names[n - 1]
+        
 
 
 # pseudocode:

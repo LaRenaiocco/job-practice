@@ -1,3 +1,26 @@
+LONGEST WORD 
+Write a function, find_longest_word, that takes a list of words and returns the length of the longest one.
+
+>>> find_longest_word(["hi", "hello"])
+5
+
+>>> find_longest_word(["Balloonicorn", "Hackbright"])
+12
+
+pseudocode:
+create variable for longest word value
+loop through list
+if len of word is longer than current longest, 
+update value
+return value
+
+def find_longest_word(lst):
+    longest = 0
+    for word in lst:
+        if len(word) > longest:
+            longest = len(word)
+    return longest
+
 LEET SPEAK
 in which standard letters are often replaced by numerals or special characters.
 
