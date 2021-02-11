@@ -1,3 +1,56 @@
+REV LIST IN PLACE 
+
+Reverse a list in-place. Remember, for this to be “in-place” it can only use a small, 
+constant amount of extra storage space, so no duplicating the list!
+** No .reverse() or reversed() or slicing
+For example:
+
+>>> lst = [1, 2, 3]
+>>> rev_list_in_place(lst)
+>>> lst
+[3, 2, 1]
+
+pseudocode:
+we need to reverse numbers without making a new list
+create a variable to store current num (start at first)
+variable for current index, start at 0
+loop while index is less than 1/2 the length of list:
+item at current index now equals item at index + 1 * -1
+item at index + 1 * -1 equals current num
+reassign index +1 
+reassing current num to be list at new index
+
+return list
+
+def rev_list_in_place(lst):
+    index = 0
+    current = lst[index]
+    while index < len(lst) // 2:
+        lst[index] = lst[(index +1) * -1]
+        lst[(index + 1) * -1] = current
+        index += 1
+        current = lst[index]
+    return lst
+______________________________________
+SUM LIST
+Compute the sum of a list of numbers.
+
+For example:
+
+>>> sum_list([5, 3, 6, 2, 1])
+17
+
+def sum_list(lst):
+    total = 0
+    for num in lst:
+        total += num
+    return total
+
+or
+
+def sum_list(lst):
+    return sum(lst)
+______________________________________
 LONGEST WORD 
 Write a function, find_longest_word, that takes a list of words and returns the length of the longest one.
 
@@ -20,7 +73,7 @@ def find_longest_word(lst):
         if len(word) > longest:
             longest = len(word)
     return longest
-
+______________________________________
 LEET SPEAK
 in which standard letters are often replaced by numerals or special characters.
 
