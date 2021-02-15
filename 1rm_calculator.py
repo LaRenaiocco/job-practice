@@ -25,6 +25,9 @@ def calculate_1RM(w, r):
     360
     >>> calculate_1RM(400,0)
     0
+    >>> calculate_1RM(400,0) 
+    0
+
     """
     if r == 0:
         return 0
