@@ -27,7 +27,62 @@
 # the rest of the string after the digits.
 
 def myAtoi(s):
-    pass
+    """
+    >>> myAtoi("42")
+    42
+    >>> myAtoi("-42")
+    -42
+    >>> myAtoi("4193 with words")
+    4193
+    >>> myAtoi("words and 987")
+    0
+    >>> myAtoi("-91283472332")
+    -2147483648
+    >>> myAtoi("-+12")
+    0
+    >>> myAtoi("+")
+    0
+    >>> myAtoi("-hello")
+    0
+    >>> myAtoi("+hello")
+    0
+    """
+    # strip whitespace
+    s = s.strip()  
+    negative = False
+    # check if string is empty
+    if s == "":           
+        return 0
+    # check if number will be negative and remove symbol
+    if s[0] == "-":         
+        negative = True
+        s = s[1:]
+    # check and remove positive symbol if present
+    elif s[0] == "+":         
+        s = s[1:]
+    # recheck if string is empty after removing whitespace and +, - characters
+    if s == "":
+        return 0
+
+    # loop through string with enumerate to check  for digits
+    for index, char in enumerate(s):
+        if not char.isdigit():
+            s = s[0:index]
+            if s == "":
+                return 0
+            break
+    # if number is negative, convert to int and check lower constraint
+    if negative:
+        if (int(s) * -1) < (-2 ** 31):
+            return (-2 ** 31)
+        else: 
+            return int(s) * -1
+    # if number is positive, convert to int and check upper constraint
+    else:
+        if int(s) > (2 ** 31) -1:
+            return (2 ** 31) -1
+        else: return int(s)
+
 
 # concept:
 # intake string, return integer
@@ -47,8 +102,13 @@ def myAtoi(s):
 # check if each char is a digit.
 # if yes, pass,
 # if no, create a slice from 0, to current char
-# if negative set to true, return int of slice * -1
-# else, return int of slice
+# if negative set to true, 
+# check if int of slice * -1 < -2 **31, 
+# if no, return slice, if yes, retrun -2 ** 31
+# else, positive num
+# check if int of slice > 2 ** 31 -1
+# if yes, return 2 ** 31 -1
+# if no, return slice
 
 # ____________Other Idea____________
 # set empty variable for result
