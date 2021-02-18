@@ -19,7 +19,30 @@
 # assume that your function returns 231 − 1 when the division result overflows.
  
 def divide(dividend, divisor):
-    pass
+    """
+    >>> divide(10, 3)
+    3
+    >>> divide(7, -3)
+    -2
+    >>> divide(0, 1)
+    0
+    >>> divide(1, 1)
+    1
+    """
+    count = 0
+    total = dividend
+    if divisor < 0:
+        while total >= (0 + divisor):
+            count += 1
+            total += divisor
+    elif divisor > 0:
+        while total >= (0 - divisor):
+            count += 1
+            total -= divisor
+    else:
+        return 0
+    
+    return count
 
 # pseudocode
 # count variable
