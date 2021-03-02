@@ -22,6 +22,7 @@ def set_mismatch(nums):
             return [1, 2]
         else:
             return [2, 1]
+    nums.sort()
     # Handles if the missing number is the first or last number in the set
     if nums[0] != 1:
         missing = 1
