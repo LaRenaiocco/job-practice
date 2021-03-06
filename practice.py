@@ -270,6 +270,16 @@ def add_to_zero(nums):
             return True
     return False
 
+# If one flower has even petals and one has odd, return True, else return False
+#CodeWars
+def lovefunc( flower1, flower2 ):
+    if flower1 % 2 == 0 and flower2 % 2 != 0:
+        return True
+    elif flower1 % 2 != 0 and flower2 % 2 == 0:
+        return True
+    else:
+        return False
+
 
 if __name__ == "__main__":
     import doctest
