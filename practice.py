@@ -280,6 +280,11 @@ def lovefunc( flower1, flower2 ):
     else:
         return False
 
+# CODEWARS Over the Road
+
+def over_the_road(address, n):
+    return n * 2 + 1 - address
+
 
 if __name__ == "__main__":
     import doctest
