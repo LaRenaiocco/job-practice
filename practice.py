@@ -370,6 +370,60 @@ def fire_fight(s):
 # after looping through whole list
 # join the list items back together into a string with spaces  
 
+# SUM OF PARTS 6KYU - CODEWARS
+def parts_sums(ls):
+    total = sum(ls)
+    results = [total]
+    for num in ls:
+        total -= num
+        results.append(total)
+    return results
+    
+    
+    
+# results variable set to empty list
+# total variable set to sum of the whole list
+# append total to the results
+# loop through list
+# for each item in list
+#     subtract item from total
+#     append new total to the results list
+# return the results
+
+# RUNTIME FAIL #2
+
+#     result = []
+#     for index, num in enumerate(ls):
+#         result.append(sum(ls[index:]))
+#     result.append(0)
+#     return result
+
+# results variable set to an empty list
+# loop through the list tracking index and item with enumerate
+# total will equal sum of ls at index to end
+# append total to result list
+# after the loop ends:
+# append a zero to the end of the list
+# return the results
+
+#RUNTIME FAIL #1
+
+#     result = []
+#     while len(ls) > 0:
+#         result.append(sum(ls))
+#         ls = ls[1:]
+#     result.append(0)
+#     return result
+
+# input is a list, output is a list
+# result list will be sums of nums in the input list
+# result varalbe set to empty list
+# while the length of the input list is greater than 0 do these things:
+#     append the sum of the list to the result list
+#     input list equals a slice from 1 to end
+# append a zero to the end of the result list
+# return the result list
+
 
 if __name__ == "__main__":
     import doctest
