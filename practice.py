@@ -285,6 +285,77 @@ def lovefunc( flower1, flower2 ):
 def over_the_road(address, n):
     return n * 2 + 1 - address
 
+# Mock Interview with Norris
+# # Input: tokenizer('(add 2 (subtract 4 2))')
+#   
+# # Output:
+# # [
+# #     { 'type': 'paren', 'value': '(' },
+# #     { 'type': 'name', 'value': 'add' },
+# #     { 'type': 'number', 'value': '2' },
+# #     { 'type': 'paren', 'value': '(' },
+# #     { 'type': 'name', 'value': 'subtract' },
+# #     { 'type': 'number', 'value': '4' },
+# #     { 'type': 'number', 'value': '2' },
+# #     { 'type': 'paren', 'value': ')' },
+# #     { 'type': 'paren', 'value': ')' }
+# # ]
+# 
+# create a variable to hold a word, start as empty string
+# create a variable to hold a number in string form, strt as empty 
+# results variable that is an empty list
+# iterate through the string
+# check if the item is a digit
+#     add it to number varaible
+# elif check if item is a paren
+#     create the dictionary for the paren
+#     append to the results
+# elif if the item is a letter (isalpha)
+#     append that letter to word variable
+# elif if the item is a space
+#     check if word variable had a word in it
+#     if it does, create a dictionary item for the word
+#     append to the results
+#     clear the variable to empty string
+
+# # Input: tokenizer('(add 2 'apple' (subtract 4 2))')
+
+def tokenizer(string):
+    
+    word = ""
+    number = ""
+    results = []
+    for char in string:
+        if char.isdigit():
+            number += char
+        elif char ==  "(" or char ==  ")":
+            if word != "":
+                dict_item = {"type": "name", "value": word}
+                results.append(dict_item)
+                word = ""
+            elif number != "":
+                dict_item = {"type": "number", "value": number}
+                results.append(dict_item)
+                number = ""
+            dict_item = {"type": "paren", "value": char}
+            results.append(dict_item)
+            
+        elif char.isalpha():
+            word += char
+        else:
+            if word != "":
+                dict_item = {"type": "name", "value": word}
+                results.append(dict_item)
+                word = ""
+            elif number != "":
+                dict_item = {"type": "number", "value": number}
+                results.append(dict_item)
+                number = ""
+    return results
+
+
+                
+
 
 if __name__ == "__main__":
     import doctest
