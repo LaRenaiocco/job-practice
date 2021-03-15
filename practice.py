@@ -353,8 +353,22 @@ def tokenizer(string):
                 number = ""
     return results
 
+# CODEWARS 7kyu Holiday III - Fire on a Boat
+def fire_fight(s):
+    boat_list = s.split()
+    for index, item in enumerate(boat_list):
+        if item == "Fire":
+            boat_list[index] = "~~"
+    return " ".join(boat_list)
 
-                
+
+
+# Split apart the string into a list on spaces
+# loop through the list
+# check if item in list is equal to "Fire"
+# if yes, then replace fire with "~~"
+# after looping through whole list
+# join the list items back together into a string with spaces  
 
 
 if __name__ == "__main__":
